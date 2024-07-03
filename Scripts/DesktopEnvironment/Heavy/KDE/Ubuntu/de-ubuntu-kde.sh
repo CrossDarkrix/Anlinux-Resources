@@ -18,12 +18,12 @@ apt-get clean
 #Setup the necessary files
 mkdir $HOME/.vnc
 wget https://raw.githubusercontent.com/EXALAB/Anlinux-Resources/master/Scripts/DesktopEnvironment/Heavy/KDE/Ubuntu/xstartup --no-check-certificate -P $HOME/.vnc/
-wget https://raw.githubusercontent.com/EXALAB/Anlinux-Resources/master/Scripts/DesktopEnvironment/Heavy/KDE/Ubuntu/vncserver-start --no-check-certificate -P $HOME/../usr/local/bin/
-wget https://raw.githubusercontent.com/EXALAB/Anlinux-Resources/master/Scripts/DesktopEnvironment/Heavy/KDE/Ubuntu/vncserver-stop --no-check-certificate -P $HOME/../usr/local/bin/
+wget https://raw.githubusercontent.com/EXALAB/Anlinux-Resources/master/Scripts/DesktopEnvironment/Heavy/KDE/Ubuntu/vncserver-start --no-check-certificate -P $HOME/../usr/bin/
+wget https://raw.githubusercontent.com/EXALAB/Anlinux-Resources/master/Scripts/DesktopEnvironment/Heavy/KDE/Ubuntu/vncserver-stop --no-check-certificate -P $HOME/../usr/bin/
 
 chmod +x $HOME/.vnc/xstartup
-chmod +x $HOME/../usr/local/bin/vncserver-start
-chmod +x $HOME/../usr/local/bin/vncserver-stop
+chmod +x $HOME/../usr/bin/vncserver-start
+chmod +x $HOME/../usr/bin/vncserver-stop
 
 echo " "
 echo "You can now start vncserver by running vncserver-start"
