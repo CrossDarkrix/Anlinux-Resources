@@ -5,13 +5,13 @@ yum groupinstall kde-desktop-environment --forcearch=armv7hl -y
 yum install tigervnc-server dbus-x11 --forcearch=armv7hl -y
 
 #Setup the necessary files
-mkdir ~/.vnc
-wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Heavy/KDE/Yum/arm/xstartup --no-check-certificate -P ~/.vnc/
-wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Heavy/KDE/Yum/arm/vncserver-start --no-check-certificate -P /usr/local/bin/
-wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Heavy/KDE/Yum/arm/vncserver-stop --no-check-certificate -P /usr/local/bin/
-chmod +x ~/.vnc/xstartup
-chmod +x /usr/local/bin/vncserver-start
-chmod +x /usr/local/bin/vncserver-stop
+mkdir $HOME/.vnc
+wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Heavy/KDE/Yum/arm/xstartup --no-check-certificate -P $HOME/.vnc/
+wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Heavy/KDE/Yum/arm/vncserver-start --no-check-certificate -P $HOME/../usr/local/bin/
+wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Heavy/KDE/Yum/arm/vncserver-stop --no-check-certificate -P $HOME/../usr/local/bin/
+chmod +x $HOME/.vnc/xstartup
+chmod +x $HOME/../usr/local/bin/vncserver-start
+chmod +x $HOME/../usr/local/bin/vncserver-stop
 
 echo " "
 echo "You can now start vncserver by running vncserver-start"
@@ -35,7 +35,7 @@ echo " "
 echo " "
 echo " "
 
-echo "export DISPLAY=":1"" >> /etc/profile
-source /etc/profile
+echo "export DISPLAY=":1"" >> $HOME/../etc/profile
+source $HOME/../etc/profile
 
 vncserver-start

@@ -6,9 +6,9 @@ apt-get install xorg kubuntu-desktop tigervnc-standalone-server dbus-x11 -y
 
 echo "Proccesing command provided by @maalos, this fixed error in Ubuntu 20 Focal."
 
-rm /var/lib/dpkg/info/fprintd.postinst
-rm /var/lib/dpkg/info/libfprint*.postinst
-rm /var/lib/dpkg/info/libpam-fprintd*.postinst
+rm $HOME/../var/lib/dpkg/info/fprintd.postinst
+rm $HOME/../var/lib/dpkg/info/libfprint*.postinst
+rm $HOME/../var/lib/dpkg/info/libpam-fprintd*.postinst
 dpkg --configure -a
 
 echo "Done."
@@ -17,13 +17,13 @@ apt-get clean
 
 #Setup the necessary files
 mkdir ~/.vnc
-wget https://raw.githubusercontent.com/EXALAB/Anlinux-Resources/master/Scripts/DesktopEnvironment/Heavy/KDE/Ubuntu/xstartup --no-check-certificate -P ~/.vnc/
-wget https://raw.githubusercontent.com/EXALAB/Anlinux-Resources/master/Scripts/DesktopEnvironment/Heavy/KDE/Ubuntu/vncserver-start --no-check-certificate -P /usr/local/bin/
-wget https://raw.githubusercontent.com/EXALAB/Anlinux-Resources/master/Scripts/DesktopEnvironment/Heavy/KDE/Ubuntu/vncserver-stop --no-check-certificate -P /usr/local/bin/
+wget https://raw.githubusercontent.com/EXALAB/Anlinux-Resources/master/Scripts/DesktopEnvironment/Heavy/KDE/Ubuntu/xstartup --no-check-certificate -P $HOME/.vnc/
+wget https://raw.githubusercontent.com/EXALAB/Anlinux-Resources/master/Scripts/DesktopEnvironment/Heavy/KDE/Ubuntu/vncserver-start --no-check-certificate -P $HOME/../usr/local/bin/
+wget https://raw.githubusercontent.com/EXALAB/Anlinux-Resources/master/Scripts/DesktopEnvironment/Heavy/KDE/Ubuntu/vncserver-stop --no-check-certificate -P $HOME/../usr/local/bin/
 
 chmod +x ~/.vnc/xstartup
-chmod +x /usr/local/bin/vncserver-start
-chmod +x /usr/local/bin/vncserver-stop
+chmod +x $HOME/../usr/local/bin/vncserver-start
+chmod +x $HOME/../usr/local/bin/vncserver-stop
 
 echo " "
 echo "You can now start vncserver by running vncserver-start"
@@ -47,7 +47,7 @@ echo " "
 echo " "
 echo " "
 
-echo "export DISPLAY=":1"" >> /etc/profile
-source /etc/profile
+echo "export DISPLAY=":1"" >> $HOME/../etc/profile
+source $HOME/../etc/profile
 
 vncserver-start
